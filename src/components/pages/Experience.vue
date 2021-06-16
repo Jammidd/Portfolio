@@ -2,14 +2,15 @@
     <section id="experience">
         <h3>Experience</h3>
 
-        <Timeline
-          :timeline-items="timelineItems"
-          :message-when-no-items="'Nothing here yet'"
-          :unique-year="true"
-          :show-day-and-month="false"
-          order="desc"
-        />
-
+        <ClientOnly>
+            <Timeline
+              :timeline-items="timelineItems"
+              :message-when-no-items="'Nothing here yet'"
+              :unique-year="true"
+              :show-day-and-month="false"
+              order="desc"
+            />
+        </ClientOnly>
     </section>
 </template>
 
