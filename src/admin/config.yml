@@ -1,0 +1,66 @@
+backend:
+  name: github
+  repo: jammidd/portfolio
+
+media_folder: "static/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "work_history"
+    identifier_field: "id"
+    label: "Work History"
+    folder: "resume/work_history"
+    create: true
+    fields:
+      - {label: "ID", name: "id", widget: "number", required: true}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Company", name: "company", widget: "string"}
+      - {label: "Location", name: "location", widget: "string"}
+      - {label: "Start Date", name: "start_date", widget: "date"}
+      - {label: "End Date", name: "end_date", widget: "date"}
+      - {label: "Description", name: "description", widget: "markdown"}
+      - {label: "Skills", name: "skills", multiple: true, widget: "relation", collection: "skills", searchFields: ["name", "category"], valueField: "name", displayFields: ["name", "category"]}
+  - name: "education"
+    identifier_field: "id"
+    label: "Education"
+    folder: "resume/education"
+    create: true
+    fields:
+      - {label: "ID", name: "id", widget: "number", required: true}
+      - {label: "School", name: "school", widget: "string"}
+      - {label: "Field", name: "field", widget: "string"}
+      - {label: "Graduated", name: "graduated", widget: "boolean", required: false}
+      - {label: "Last Attended", name: "last_attended", widget: "date"}
+  - name: "skills"
+    identifier_field: "name"
+    label: "Skills"
+    folder: "resume/skills"
+    create: true
+    fields:
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Level", name: "level", widget: "number"}
+      - {label: "Years", name: "years", widget: "number"}
+      - {label: "Category", name: "category", widget: "string"}
+  - name: "projects"
+    identifier_field: "id"
+    label: "Projects"
+    folder: "projects"
+    create: true
+    fields:
+      - {label: "ID", name: "id", widget: "number", required: true}
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Demo URL", name: "demo_url", widget: "string", required: false}
+      - {label: "Source URL", name: "source_url", widget: "string"}
+      - {label: "Description", name: "description", widget: "string"}
+      - {label: "Image", name: "image", widget: "image", required: false}
+      - {label: "Updated", name: "updated", widget: "date"}
+  - name: "links"
+    identifier_field: "id"
+    label: "Links"
+    folder: "links"
+    create: true
+    fields:
+      - {label: "ID", name: "id", widget: "number", required: true}
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Handle", name: "handle", widget: "string", required: false}
+      - {label: "URL", name: "url", widget: "string", required: true}
