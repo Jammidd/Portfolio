@@ -1,7 +1,9 @@
 <template>
   <div class="main-container">
     <home-page></home-page>
-    <main-navbar />
+    <ClientOnly>
+      <main-navbar />
+    </ClientOnly>
     <experience-page></experience-page>
     <projects-page></projects-page>
     <about-page></about-page>
