@@ -1,9 +1,7 @@
 <template>
     <section id="projects">
-        <h3>Projects</h3>
-        <div v-for="project of projects" :key="project.id">
-            {{ project.name }}
-        </div>
+        <h3 class="title">Project Gallery</h3>
+        <Gallery :items="projects"/>
     </section>
 </template>
 
@@ -25,6 +23,8 @@
 </static-query>
 
 <script>
+import Gallery from "../gallery/Gallery.vue"
+
 export default {
     name: "ProjectsPage",
     created () {
@@ -34,6 +34,17 @@ export default {
         return {
             projects: []
         }
+    },
+    components: {
+      Gallery
     }
 }
 </script>
+
+<style lang="scss" scoped>
+  .title {
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: -25px;
+  }
+</style>

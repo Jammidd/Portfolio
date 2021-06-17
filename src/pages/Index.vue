@@ -42,16 +42,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  $navbar-height: 56px;
+  @import "../assets/scss/colors";
+
+  $navbar_height: 51px;
   .main-container {
     section {
-      height: calc(100vh - 56px);
-      padding: 56px 15px 15px 20px;
+      height: calc(100vh - 51px);
+      padding: 20px 15px;
+      &::before {
+        display: block;
+        content: " ";
+        height: 75px;
+        margin-top: -51px;
+        visibility: hidden;
+      }
       &:nth-of-type(odd) {
-        background: #999;
+        background: $charcoal;
+        color: $gainsboro;
       }
       &:nth-of-type(even) {
-        background: #f5f5f5;
+        background: $gainsboro;
       }
       &#home {
         padding-top: 0;

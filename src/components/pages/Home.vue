@@ -20,6 +20,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    @import "../../assets/scss/colors";
     section {
         display: flex;
         flex-direction: column;
@@ -29,7 +30,7 @@ export default {
         text-align: center;
         .avatar {
             border-radius: 50%;
-            box-shadow: 0 0 3px #3e3e3e;
+            box-shadow: 0 0 3px $lime;
             width: 200px;
             height: 200px;
         }
@@ -40,7 +41,7 @@ export default {
         }
         .subtitle {
             font-size: 18px;
-            color: #585858;
+            color: $lime;
         }
     }
 </style>

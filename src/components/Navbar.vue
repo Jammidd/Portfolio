@@ -102,6 +102,7 @@ export default {
     border-top: none;
     border-bottom: none;
     z-index: 100;
+    box-shadow: 0 0 3px #000;
     ul {
       li {
         color: #e3e3e3;
