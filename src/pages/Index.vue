@@ -47,7 +47,7 @@ export default {
   $navbar_height: 51px;
   .main-container {
     section {
-      height: calc(100vh - 51px);
+      min-height: calc(100vh - 51px);
       padding: 20px 15px;
       &::before {
         display: block;
@@ -68,8 +68,12 @@ export default {
         padding-bottom: 0;
       }
       &.footer {
-        height: inherit;
+        min-height: inherit;
         padding: 25px;
+        &::before {
+          height: inherit;
+          margin-top: 0;
+        }
       }
     }
   }

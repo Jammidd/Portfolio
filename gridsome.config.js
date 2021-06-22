@@ -47,6 +47,12 @@ module.exports = {
         typeName: 'Links'
       }
     }, {
+      use: '@gridsome/source-filesystem',
+      options: {
+        path: 'locations/*.md',
+        typeName: 'Locations'
+      }
+    }, {
       use: 'gridsome-plugin-netlify-cms',
       options: {
         publicPath: '/admin'

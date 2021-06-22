@@ -1,6 +1,7 @@
 // This is the main.js file. Import global CSS and scripts here.
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 import 'timeline-vuejs/dist/timeline-vuejs.css'
+import 'vue-svg-map/dist/index.css'
 import '~/assets/scss/app.scss'
 
 import { library } from '@fortawesome/fontawesome-svg-core'

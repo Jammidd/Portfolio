@@ -13,20 +13,21 @@
             as kayaking, boating, and jet-skiing when I can, and when I can’t I stick to games such as D&amp;D or
             video games, specifically open world style games like Skyrim.
         </p>
-
-        <div id="svgMap"></div>
+        <travel-map />
     </section>
 </template>
 
 <script>
-import svgMap from "svgmap"
+import TravelMap from '../TravelMap.vue'
 
 export default {
     name: "AboutPage",
-    created () {
+    components: {
+        TravelMap
     }
 }
-</script>
+</script
+        TravelMap>
 
 <style lang="scss" scoped>
     .about-section {

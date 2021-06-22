@@ -50,10 +50,12 @@ export default {
     section.footer {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         text-align: center;
+        &::before {
+            margin-top: 0;
+        }
         & > * {
-            margin: 20px 0;
+            margin-bottom: 20px;
         }
         ul {
             display: block;
@@ -72,7 +74,10 @@ export default {
 
         @include for-tablet-portrait-up {
             flex-direction: row;
-
+            text-align: inherit;
+            .copy {
+                flex-grow: 1;
+            }
             & > * {
                 margin: 0;
             }

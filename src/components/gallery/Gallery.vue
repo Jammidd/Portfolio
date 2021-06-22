@@ -31,7 +31,7 @@
 
             <button
                 v-for="(item, index) in items"
-                :key="item.id"
+                :key="'test=' + item.id"
                 class="panel-item"
                 :style="`background-image: url('${item.image}')`"
                 @click="selectItem(index)"
