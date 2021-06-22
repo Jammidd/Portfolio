@@ -28,14 +28,6 @@
                 :style="`background-image: url('${item.image}')`"
                 @click="selectItem(index)"
             ></button>
-
-            <button
-                v-for="(item, index) in items"
-                :key="'test=' + item.id"
-                class="panel-item"
-                :style="`background-image: url('${item.image}')`"
-                @click="selectItem(index)"
-            ></button>
         </div>
     </div>
 </template>
@@ -78,16 +70,17 @@ export default {
     @import "../../assets/scss/colors.scss";
     .gallery {
         width: 100%;
-        height: calc(100% - 40px);
-        display: flex;
-        flex-direction: column;
+        height: calc(100vh - 150px);
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
         gap: 10px;
         .focused-item {
             background-size: cover;
             background-repeat: no-repeat;
             background-color: $gainsboro;
-            flex-grow: 1;
             position: relative;
+            grid-column: 1 / 13;
+            height: 450px;  
 
             .caption {
                 background: rgba(0,0,0,0.6);
@@ -130,10 +123,11 @@ export default {
         }
         .panel {
             display: flex;
-            flex-direction: row;
             flex-wrap: wrap;
+            flex-direction: row;
             overflow-y: scroll;
-            gap: 10px;
+            grid-column: 1 / 13;
+            gap: 8px;
             .panel-item {
                 background-color: $gainsboro;
                 background-size: cover;
@@ -150,8 +144,14 @@ export default {
 
         @include for-tablet-portrait-up {
             flex-direction: row;
+            .focused-item {
+                grid-column: 1 / 10;
+                height: 100%;
+            }
 
             .panel {
+                grid-column: 10 / 13;
+                align-content: baseline;
                 .panel-item {
                     margin-top: 0;
                 }
