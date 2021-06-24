@@ -2,15 +2,6 @@
     <section id="experience">
         <h3>Experience</h3>
 
-        <ClientOnly>
-            <Timeline
-              :timeline-items="timelineItems"
-              :message-when-no-items="'Nothing here yet'"
-              :unique-year="true"
-              :show-day-and-month="false"
-              order="desc"
-            />
-        </ClientOnly>
     </section>
 </template>
 
@@ -66,7 +57,7 @@ export default {
       const history = this.$static.work_history.edges.map((x) => x.node)
       const education = this.$static.education.edges.map((x) => x.node)
 
-      this.timelineItems = history.map((x) => {
+      const historyItems = history.map((x) => {
         return {
           from: new Date(x.start_date),
           title: x.title,
@@ -74,20 +65,27 @@ export default {
         }
       })
 
+      const educationItems = education.map((x) => {
+        return {
+          from: new Date(x.last_attended),
+          title: x.school,
+          description: x.field
+        }
+      })
 
-      this.timelineItems = this.timelineItems.concat(
-        education.map((x) => {
-          return {
-            from: new Date(x.last_attended),
-            title: x.school,
-            description: x.field
-          }
-        })
-      )
+      const allItems = [...historyItems, ...educationItems]
+
+      allItems.forEach((x) => {
+        if (x.from.getFullYear() in this.timelineItems) {
+          this.timelineItems[x.from.getFullYear()].push(x)
+        } else {
+          this.timelineItems[x.from.getFullYear()] = [x]
+        }
+      })
     },
     data () {
         return {
-            timelineItems: [],
+            timelineItems: {},
         }
     },
     components: {

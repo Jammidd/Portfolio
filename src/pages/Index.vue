@@ -4,7 +4,7 @@
     <ClientOnly>
       <main-navbar />
     </ClientOnly>
-    <experience-page></experience-page>
+    <!-- <experience-page></experience-page> -->
     <projects-page></projects-page>
     <about-page></about-page>
 

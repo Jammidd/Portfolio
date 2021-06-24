@@ -13,6 +13,8 @@
             as kayaking, boating, and jet-skiing when I can, and when I can’t I stick to games such as D&amp;D or
             video games, specifically open world style games like Skyrim.
         </p>
+
+        <hr />
         <travel-map />
     </section>
 </template>
@@ -26,14 +28,17 @@ export default {
         TravelMap
     }
 }
-</script
-        TravelMap>
+</script>
 
 <style lang="scss" scoped>
     .about-section {
         text-align: center;
-        .title {
-
+        hr {
+            width: 45%;
+            margin: 50px auto;
+        }
+        p {
+            line-height: 30px;
         }
     }
 </style>

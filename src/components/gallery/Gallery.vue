@@ -98,27 +98,40 @@ export default {
                 &__description {
                     padding: 15px 0;
                 }
-                &__links > a {
-                    padding: 10px 25px;
-                    border: none;
-                    box-shadow: 0 0 4px $charcoal;
-                    color: $stone;
-                    text-decoration: none;
-                    border-radius: 4px;
+                &__links {
+                    display: grid;
+                    grid-template-columns: repeat(12, 1fr);
+                    gap: 10px;
+                    & > a {
+                        padding: 15px 25px;
+                        border: none;
+                        box-shadow: 0 0 4px $charcoal;
+                        color: $stone;
+                        text-decoration: none;
+                        border-radius: 4px;
+                        text-align: center;
+                        text-transform: uppercase;
+                        font-size: 14px;
+                        &:hover {
+                            font-weight: bold;
+                        }
+                    }
+                    .caption__demo {
+                        background: $green;
+                        grid-column: 1 / 6;
+                        &:hover {
+                            background: lighten($green, 15%);
+                        }
+                    }
+                    .caption__code {
+                        background: $azul;
+                        grid-column: 8 / 13;
+                        &:hover {
+                            background: lighten($azul, 15%);
+                        }
+                    }
                 }
-                &__demo {
-                    background: $green;
 
-                    &:hover {
-                        background: lighten($green, 15%);
-                    }
-                }
-                &__code {
-                    background: $azul;
-                    &:hover {
-                        background: lighten($azul, 15%);
-                    }
-                }
             }
         }
         .panel {
@@ -139,6 +152,7 @@ export default {
                 width: 100px;
                 height: 100px;
                 border: none;
+                cursor: pointer;
             }
         }
 

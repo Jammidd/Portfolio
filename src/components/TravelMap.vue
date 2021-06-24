@@ -1,5 +1,6 @@
 <template>
     <div class="travel-map">
+        <h4>My Travels</h4>
         <svg-map
             v-bind="$attrs"
             :map="World"
@@ -19,11 +20,8 @@
             </template>
         </svg-map>
         <div v-if="showMore" class="travel-map__modal">
-            <button @click="hideDetails">close</button>
-
+            <button @click="hideDetails" class="close-btn">close</button>
             <h4>{{ activeLocation.location_name }}</h4>
-            <h6>{{ getActiveTripDate() }}</h6>
-
             <p>{{ activeLocation.description }}</p>
         </div>
     </div>
@@ -73,12 +71,6 @@ export default {
         isLocationSelected(location) {
             return Object.keys(this.locations).some(selectedLocation => selectedLocation === location.id)
         },
-        getActiveTripDate() {
-            const start_date = new Date(this.activeLocation.start_date)
-            const end_date = new Date(this.activeLocation.end_date)
-
-            return `${start_date} - ${end_date}`
-        },
         showDetails(event) {
             const target = event.target && event.target.attributes.name.value
             Object.keys(this.locations).forEach((x) => {
@@ -100,15 +92,41 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/scss/colors.scss";
 .travel-map {
+    max-width: 650px;
+    margin: 50px auto;
+    position: relative;
     &__modal {
-        position: fixed;
+        position: absolute;
         top: 60px;
-        width: calc(100% - 54px);
-        height: calc(100% - 170px);
         padding: 15px;
         border: 1px solid darkgray;
         background-color: white;
+
+        .close-btn {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: transparent;
+            border: none;
+            padding: 10px;
+            color: $azul;
+            cursor: pointer;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        h4 {
+            color: $dim-gray;
+            font-weight: 500;
+            font-size: 20px;
+            margin: 15px;
+            padding: 0;
+        }
+        p {
+            line-height: 30px;
+        }
     }
 }
 </style>

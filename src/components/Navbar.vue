@@ -5,7 +5,7 @@
     </button>
     <ul id="nav-menu" class="nav-menu">
       <router-link tag="li" to="#home">Home</router-link>
-      <router-link tag="li" to="#experience">Experience</router-link>
+      <!-- <router-link tag="li" to="#experience">Experience</router-link> -->
       <router-link tag="li" to="#projects">Projects</router-link>
       <router-link tag="li" to="#about">About</router-link>
     </ul>
